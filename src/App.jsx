@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import List from "./pages/list/List";
-import Single from "./pages/single/Single";
-import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import List from "./pages/List/List";
+import Single from "./pages/Single/Single";
+import New from "./pages/New/New";
+
 
 function App() {
   return (

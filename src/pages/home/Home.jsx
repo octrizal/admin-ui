@@ -1,11 +1,7 @@
-import React from './home.scss'
+import "./home.scss";
 
 const Home = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return  <div>Home</div>;
+};
 
-export default Home
+export default Home 
