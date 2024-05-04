@@ -1,19 +1,15 @@
 .list {
   display: flex;
-
+  width: 100%;
+  
   .listContainer {
     flex: 6;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-
+    
     .widgets {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-end;
       margin-bottom: 20px;
-      width: 100%; 
     }
   }
 }
