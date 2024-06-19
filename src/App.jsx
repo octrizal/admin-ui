@@ -23,7 +23,7 @@ function App() {
   };
   
   const NotRequireAuth = ({ children }) => {
-    return currentUser ? <Navigate to="/" /> : children;
+    return currentUser ? <Navigate to="/login" /> : children;
   };
 
   return (
