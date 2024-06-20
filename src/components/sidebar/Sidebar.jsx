@@ -41,10 +41,12 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+          <Link to="/#">
+            <li>
+              <CategoryIcon className="dashboard" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LIST</p>
           <Link to="/users">
             <li>
@@ -54,7 +56,7 @@ const Sidebar = () => {
           </Link>
           <Link to="/products">
             <li>
-              <CategoryIcon className="product" />
+              <CategoryIcon className="products" />
               <span>Products</span>
             </li>
           </Link>
