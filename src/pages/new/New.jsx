@@ -16,20 +16,18 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
 
   const navigate = useNavigate()
-
   const location = useLocation(); 
   const type = location.pathname.split('/')[1]; 
 
   useEffect(() => {
     const uploadFile = () => {
+      if (!file) return;
       const name = new Date().getTime() + file.name;
-
-      //console.log(name);
       const storageRef = ref(storage, name);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -37,9 +35,7 @@ const New = ({ inputs, title }) => {
         "state_changed",
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
           setPerc(progress);
-
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
@@ -61,15 +57,12 @@ const New = ({ inputs, title }) => {
         }
       );
     };
-    file && uploadFile();
+    uploadFile();
   }, [file]);
-
-  //console.log(data);
 
   const handleInput = (e) => {
     const id = e.target.id;
     const value = e.target.value;
-
     setData({ ...data, [id]: value });
   };
 
@@ -95,7 +88,6 @@ const New = ({ inputs, title }) => {
           });
           break;
       } 
-      
       navigate(-1)
     } catch (err) {
       console.log(err);
@@ -134,7 +126,6 @@ const New = ({ inputs, title }) => {
                   style={{ display: "none" }}
                 />
               </div>
-
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>

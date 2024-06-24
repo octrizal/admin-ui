@@ -6,7 +6,7 @@ import Datatable from "../../components/datatable/Datatable";
 import { useLocation } from "react-router-dom";
 
 const Single = ({columns}) => {
-  const Location = useLocation();
+  const location = useLocation();
   const id = location.pathname.split('/')[2];
 
   return (
@@ -31,6 +31,10 @@ const Single = ({columns}) => {
               <span className="itemValue">{id}</span>
             </div>
             <div className="detailItem">
+            <span className="itemKey">Email:</span>
+            <span className="itemValue">janedoe@gmail.com</span>
+          </div>
+            <div className="detailItem">
               <span className="itemKey">Phone:</span>
               <span className="itemValue">+1 2345 67 89</span>
             </div>
@@ -54,7 +58,6 @@ const Single = ({columns}) => {
         <div className="bottom">
         <h1 className="title">Last Transactions</h1>
         <Datatable columns={columns} />
-        <List />
       </div>
       </div>
     </div>
